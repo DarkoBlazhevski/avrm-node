@@ -117,15 +117,6 @@ matematikia(5, 10, (g, h) => {
     return g * 2 + h;
 });
 
-
-
-
-
-
-
-
-
-
 // el.addEventListener('click', () => {
 
 // })
