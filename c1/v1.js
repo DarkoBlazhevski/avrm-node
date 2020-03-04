@@ -2,7 +2,7 @@ const fs = require('fs');
 
 
 const tconvert = (t, flag) => {
-    switch(flag){
+    switch (flag) {
         case 'c2f':
             return (t * 1.8 + 32);
         case 'f2c':
@@ -12,8 +12,8 @@ const tconvert = (t, flag) => {
     }
 };
 
-const tconvert2 = function(t, flag){
-    switch(flag){
+const tconvert2 = function (t, flag) {
+    switch (flag) {
         case 'c2f':
             return (t * 1.8 + 32);
         case 'f2c':
@@ -24,7 +24,7 @@ const tconvert2 = function(t, flag){
 };
 
 function tconvert3(t, flag) {
-    switch(flag){
+    switch (flag) {
         case 'c2f':
             return (t * 1.8 + 32);
         case 'f2c':
@@ -55,24 +55,24 @@ let cond2 = false;
 
 const f1 = () => {
     return new Promise((success, fail) => {
-        if(!cond){
+        if (!cond) {
             return success('SUCCESS!');
         }
         return fail('FAIL');
-    } );
+    });
 }
 
 const f2 = () => {
     return new Promise((success, fail) => {
-        if(cond2){
+        if (cond2) {
             return success('SUCCESS!');
         }
         return fail('FAIL');
-    } );
+    });
 }
 
 f1()
-    .then((data) => { 
+    .then((data) => {
         console.log(data);
         return f2();
     })
@@ -134,7 +134,7 @@ var ime = 'pero';
 
 const fun1 = () => {
     return new Promise((success, fail) => {
-        if(ime == 'pero'){
+        if (ime == 'pero') {
             return success('WIN!');
         }
         return fail(':(');
@@ -143,7 +143,7 @@ const fun1 = () => {
 
 const fun2 = () => {
     return new Promise((success, fail) => {
-        if(ime == 'janko'){
+        if (ime == 'janko') {
             return success('WIN2!');
         }
         return fail(':( 2');
@@ -151,28 +151,28 @@ const fun2 = () => {
 };
 
 fun1()
-.then(() => {
-    console.log('Success');
-    return fun2();
-})
-.then(() => {
-    console.log('Success 2');
-})
-.catch(() => {
-    console.log('Fail');
-});
+    .then(() => {
+        console.log('Success');
+        return fun2();
+    })
+    .then(() => {
+        console.log('Success 2');
+    })
+    .catch(() => {
+        console.log('Fail');
+    });
 
 
 // Promises
 
 fs.readFile('./test.txt', 'utf8', (err, data) => {
-    if(err){
+    if (err) {
         console.log('ERR: ', err);
         return;
     }
     let d = data + ' impsum dolor sit amet...';
     fs.writeFile('./test.txt', d, (err) => {
-        if(err){
+        if (err) {
             console.log('ERR: ', err);
             return;
         }
@@ -184,7 +184,7 @@ fs.readFile('./test.txt', 'utf8', (err, data) => {
 const readf = (filename) => {
     return new Promise((success, fail) => {
         fs.readFile(filename, 'utf8', (err, data) => {
-            if(err){
+            if (err) {
                 return fail(err);
             }
             return success(data);
@@ -195,7 +195,7 @@ const readf = (filename) => {
 const writef = (filename, data) => {
     return new Promise((success, fail) => {
         fs.writeFile(filename, data, (err) => {
-            if(err){
+            if (err) {
                 return fail(err);
             }
             return success();
