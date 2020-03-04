@@ -11,7 +11,3 @@ console.log(tconvert(100, "c2f"));
 console.log(tconvert(100, "f2c"));
 console.log(tconvert(56, "c2f"));
 console.log(tconvert(56, "abc"));
-
-setInterval(() => {
-    c
-})
