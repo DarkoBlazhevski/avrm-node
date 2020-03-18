@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Mongo hw</title>
+</head>
+
+<body>
+    <form method="post" action="/newstudent">
+        <input type="text" name="ime" placeholder="Ime">
+        <br />
+        <input type="text" name="prezime" placeholder="Prezime">
+        <br />
+        <input type="number" name="prosek" placeholder="Prosek">
+        <button type="submit">Submit</button>
+    </form>
+    <hr />
+
+
+    <table border="1" width="75%">
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Prosek</th>
+            <th>Delete</th>
+        </tr>
+        {{#each students}}
+        <tr>
+            <td>{{this.ime}}</td>
+            <td>{{this.prezime}}</td>
+            <td>{{this.prosek}}</td>
+            <td>
+                <a href="/deletestudent/{{@index}}">DELETE</a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</body>
+
+</html>
