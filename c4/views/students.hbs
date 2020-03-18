@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Document</title>
+</head>
+<body>
+    {{> header}}
+    <form method="post" action="/students">
+        <label>
+            Ime:<br/>
+            <input type="text" name="ime">
+        </label>
+        <br/>
+        <label>
+            Prezime:<br/>
+            <input type="text" name="prezime">
+        </label>
+        <br/>
+        <label>
+            Prosek:<br/>
+            <input type="number" name="prosek">
+        </label>
+        <br/>
+        <br/>
+        <button type="submit">Submit</button>
+    </form>
+    <hr/>
+    <table border="1" width="50%">
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Prosek</th>
+            <th>Delete</th>
+        </tr>
+        {{#each students}}
+        <tr>
+            <td>{{this.ime}}</td>
+            <td>{{this.prezime}}</td>
+            <td>{{this.prosek}}</td>
+            <td>
+                <a href="/students/delete/{{@index}}">DELETE</a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</body>
+</html>
