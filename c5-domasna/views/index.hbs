@@ -20,12 +20,13 @@
     <hr />
 
 
-    <table border="1" width="75%">
+    <table border="1" width="40%">
         <tr>
             <th>Ime</th>
             <th>Prezime</th>
             <th>Prosek</th>
-            <th>Delete</th>
+            <th width="10%">Delete</th>
+            <th width="10%">Update</th>
         </tr>
         {{#each students}}
         <tr>
@@ -33,7 +34,10 @@
             <td>{{this.prezime}}</td>
             <td>{{this.prosek}}</td>
             <td>
-                <a href="/deletestudent/{{@index}}">DELETE</a>
+                <a href="/deletestudent/{{@index}}">Delete</a>
+            </td>
+            <td>
+                <a href="/updatestudent/{{@index}}">Update</a>
             </td>
         </tr>
         {{/each}}

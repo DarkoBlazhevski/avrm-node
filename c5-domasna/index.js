@@ -41,6 +41,7 @@ app.get('/', (req, res) => {
             console.log(err);
         }
         res.render('index', { 'students': data });
+        console.log(data);
     });
 });
 
@@ -60,11 +61,11 @@ app.post('/newstudent', (req, res) => {
 
 app.get('/updatestudent', (req, res) => {
     Students.updateOne(
-        { _id: '5e739db9d2c5d52b2c24fb57' },
+        { _id: '5e73c143bed86f1c90141c1d' },
         {
             ime: "Janko",
             prezime: "Jankovski",
-            prosek: 3
+            prosek: 5
         },
         (err) => {
             if (err) {
@@ -78,13 +79,13 @@ app.get('/updatestudent', (req, res) => {
 
 app.get('/deletestudent/:id', (req, res) => {
     Students.deleteOne(
-        { _id: '5e739db9d2c5d52b2c24fb57' }, (err) => {
-        if(err) {
-            console.log(err);
-        }
+        { _id: '5e73c143bed86f1c90141c1d' }, (err) => {
+            if (err) {
+                console.log(err);
+            }
             res.redirect('/');
-        console.log('Student deleted');
-    });
+            console.log('Student deleted');
+        });
 });
 
 app.listen(8080, (err) => {
