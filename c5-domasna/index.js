@@ -38,10 +38,9 @@ const Students = mongoose.model(
 app.get('/', (req, res) => {
     Students.find({}, (err, data) => {
         if (err) {
-            return console.log(err);
+            console.log(err);
         }
-        res.render('index', data);
-        console.log(data);
+        res.render('index', { 'students': data });
     });
 });
 
@@ -61,10 +60,10 @@ app.post('/newstudent', (req, res) => {
 
 app.get('/updatestudent', (req, res) => {
     Students.updateOne(
-        { _id: '5e7269763e029c112cf0e594' },
+        { _id: '5e739db9d2c5d52b2c24fb57' },
         {
-            ime: "Branko",
-            prezime: "Brankovski",
+            ime: "Janko",
+            prezime: "Jankovski",
             prosek: 3
         },
         (err) => {
@@ -73,19 +72,19 @@ app.get('/updatestudent', (req, res) => {
             }
             console.log('Student updated');
         }
-        );
-        res.redirect('/');
+    );
+    res.redirect('/');
 });
 
 app.get('/deletestudent/:id', (req, res) => {
     Students.deleteOne(
-        { _id: '5e7271756d1eb527ace198e3' }, (err) => {
-            if (err) {
-                console.log(err);
-            }
-            console.log('Student deleted');
-        });
-    res.redirect('/');
+        { _id: '5e739db9d2c5d52b2c24fb57' }, (err) => {
+        if(err) {
+            console.log(err);
+        }
+            res.redirect('/');
+        console.log('Student deleted');
+    });
 });
 
 app.listen(8080, (err) => {
