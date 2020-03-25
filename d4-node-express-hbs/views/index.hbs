@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Blog</title>
+</head>
+
+<body>
+  {{> header}}
+  <form action="/newblogpost" method="post">
+    <input name="name" type="text" placeholder="Blogger's name:">
+    <br>
+    <input name="lastname" type="text" placeholder="Blogger's lastname:">
+    <br>
+    <input type="text" name="title" placeholder="Bolg's Title">
+    <br>
+    <textarea name="content" id="blog-content" cols="30" rows="10"></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+  <hr>
+  <table border="1" width="100%">
+    <tr>
+      <th>Blogger's name</th>
+      <th>Blogger's lastname</th>
+      <th>Blogger's content</th>
+      <th>Title</th>
+      <th>Delete</th>
+    </tr>
+    {{#each blogpost}}
+    <tr>
+      <td>{{this.name}}</td>
+      <td>{{this.lastname}}</td>
+      <td>{{this.content}}</td>
+      <td>{{this.title}}</td>
+      <td>
+        <a href="/blogpost/delete/{{@index}}">Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+  </table>
+</body>
+
+</html>
