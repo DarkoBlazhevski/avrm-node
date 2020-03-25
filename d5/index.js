@@ -59,13 +59,13 @@ app.post('/newstudent', (req, res) => {
     res.redirect('/');
 });
 
-app.get('/updatestudent', (req, res) => {
+app.post('/updatestudent', (req, res) => {
     Students.updateOne(
-        { _id: '5e73c143bed86f1c90141c1d' },
+        { _id: req.params.id },
         {
-            ime: "Janko",
-            prezime: "Jankovski",
-            prosek: 5
+            ime: req.body.ime,
+            prezime: req.body.prezime,
+            prosek: req.body.prosek
         },
         (err) => {
             if (err) {
@@ -77,9 +77,9 @@ app.get('/updatestudent', (req, res) => {
     res.redirect('/');
 });
 
-app.get('/deletestudent/:id', (req, res) => {
+app.post('/deletestudent/:id', (req, res) => {
     Students.deleteOne(
-        { _id: '5e73c143bed86f1c90141c1d' }, (err) => {
+        { _id: req.params.id }, (err) => {
             if (err) {
                 console.log(err);
             }
