@@ -1,1 +1,1 @@
-# avrm-node
+# SemosEdu-Nodejs course
